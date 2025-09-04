@@ -1,0 +1,12 @@
+cmake_minimum_required (VERSION 3.15)
+project(AdministradorProcesos)
+set(CMAKE_CXX_STANDARD 17)
+find_package(Boost REQUIRED COMPONENTS process)
+include_directories(${Bosst_INCLUDE_DIRS})
+add_executable(proccess_manager
+    src/main.cpp
+    src/core/ProcessManager.cpp
+    src/plataform/LinuxSystemMonitor.cpp
+    src/plataform/WindowsSystemMonitor.cpp
+)
+target_link_libraries(process_manager PRIVATE Boost::process)
